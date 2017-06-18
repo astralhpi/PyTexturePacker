@@ -170,6 +170,7 @@ class PackerInterface(object):
 
         if self.trim_mode:
             for image_rect in image_rects:
+                print image_rect
                 image_rect.trim(self.trim_mode)
 
         atlas_list = self._pack(image_rects)
