@@ -168,9 +168,8 @@ class PackerInterface(object):
         else:
             image_rects = Utils.load_images_from_dir(input_images)
 
-        if self.trim_mode:
-            for image_rect in image_rects:
-                print image_rect
+        for image_rect in image_rects:
+            if self.trim_mode and not image_rect.image_path.endswith("_9patch.png"):
                 image_rect.trim(self.trim_mode)
 
         atlas_list = self._pack(image_rects)
